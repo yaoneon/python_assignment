@@ -12,14 +12,20 @@ Usage example:'http://localhost:5000/financial_data?start_date=2023-04-11&end_da
 *If any file is modified by yourself, run docker-compose up --build to confirm all changes are recognized by docker.
 
 
-# Description
+# Description of each file
 ## docker-compose.yml
-First, docker-compose.yml would be implemented.
+docker-compose.yml is the first to be implemented.
 The file defines three services, which are 'db', 'setup_db' and 'api' respectively.
 -'db' is based on mysql image and would be used to build local database services. Environment variable and initialization settings of mysql are defined in this block as well.
 -'setup_db' is based on python image and depends on 'db' since it is used to create table and insert data in DB. The body of this service is defined in get_raw_data.py, which would be implemented by the default command.
 -'api' is based on python image and depends on 'setup_db' since it relies on data in the DB. The api serive is defined in financial/api.py which would be implemented by default command. The port of API service is 5000, please react with the service by port 5000.
 
+## Dockerfile
+The file creates an image used in two services: 'setup_db' and 'api'.
+It is based on a image 'python3.9-slim-buster'. All requirements mentioned in requirements.txt would be installed.
 
+## requirements.txt
+Simply defines the required modules, which would be installed when building images of two services: 'setup_db' and 'api'.
 
+## schema.sql
 
