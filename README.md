@@ -1,48 +1,20 @@
-# Take-Home Assignment
-
-The goal of this take-home assignment is to evaluate your abilities to use API, data processing and transformation, SQL, and implement a new API service in Python.
-
-You should first fork this repository, and then send us the code or the url of your forked repository via email.
-
-**Please do not submit any pull requests to this repository.**
-
-You need to perform the following **Two** tasks:
-
-## Task1
-### Problem Statement:
-1. Retrieve the financial data of Two given stocks (IBM, Apple Inc.)for the most recently two weeks. Please using an free API provider named [AlphaVantage](https://www.alphavantage.co/documentation/) 
-2. Process the raw API data response, a sample output after process should be like:
-```
-{
-    "symbol": "IBM",
-    "date": "2023-02-14",
-    "open_price": "153.08",
-    "close_price": "154.52",
-    "volume": "62199013",
-},
-{
-    "symbol": "IBM",
-    "date": "2023-02-13",
-    "open_price": "153.08",
-    "close_price": "154.52",
-    "volume": "59099013"
-},
-{
-    "symbol": "IBM",
-    "date": "2023-02-12",
-    "open_price": "153.08",
-    "close_price": "154.52",
-    "volume": "42399013"
-},
-...
-``` 
-3. Insert the records above into a table named `financial_data` in your local database, column name should be same as the processed data from step 2 above (symbol, date, open_price, close_price, volume) 
+# Before using
+Apikey for using service provided by alphavantage should be set.
+Simply copy and paste your apikey to apikey.txt(in the subfolder 'financial').
 
 
-## Task2
-### Problem Statement:
-1. Implement an Get financial_data API to retrieve records from `financial_data` table, please note that:
-    - the endpoint should accept following parameters: start_date, end_date, symbol, all parameters are optional
+# Start using
+Navigate to the project folder and run docker-compose up in your terminal.
+*If any file is modified by yourself, run docker-compose up --build to confirm all changes are recognized by docker.
+
+
+
+
+
+
+
+
+ymbol, all parameters are optional
     - the endpoint should support pagination with parameter: limit and page, if no parameters are given, default limit for one page is 5
     - the endpoint should return an result with three properties:
         - data: an array includes actual results
